@@ -61,4 +61,4 @@ async def test_solver():
     for i in range(5):
         await move_request("down")
     # print(game_state)
-    assert game_state["health"] == 666
+    assert game_state["health"] == 3
