@@ -2,4 +2,12 @@
 
 FROM python:3.11
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000",  "--reload"]
+WORKDIR /app
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+# it will automatically
+# expose to port 8000 in the container
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000",  "--reload"]
