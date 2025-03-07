@@ -9,9 +9,9 @@ game_state = {}
 
 async def login_request():
     """Simulates a frontend login."""
-    
+
     payload = {"username": USERNAME}
-    
+
     async with httpx.AsyncClient() as client:
         response = await client.post(LOGIN_URL, json=payload)
 
@@ -31,7 +31,7 @@ async def move_request(dir):
     """Simulates a frontend move request."""
 
     payload = {"username": USERNAME, "direction": dir}
-    
+
     async with httpx.AsyncClient() as client:
         response = await client.post(MOVE_URL, json=payload)
 
@@ -56,5 +56,5 @@ async def test_solver():
     await reset_request()
     for i in range(5):
         await move_request("down")
-    #print(game_state)
+    # print(game_state)
     assert game_state["health"] == 666

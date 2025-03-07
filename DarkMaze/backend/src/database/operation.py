@@ -24,7 +24,7 @@ def reset_game_state(username):
     if result:
         # User exists, update data
         cursor.execute("""
-            UPDATE game_state 
+            UPDATE game_state
             SET current_level_name = ?, map_size = ?, health = ?, path = ?, current_position = ?
             WHERE username = ?
         """, ("maze-level-1", json.dumps([10, 10]), 3, json.dumps([[1, 0]]), json.dumps([1, 0]), username))
@@ -41,7 +41,7 @@ def save_game_state(username, current_level_name, map_size, health, path, curren
     if result:
         # User exists, update data
         cursor.execute("""
-            UPDATE game_state 
+            UPDATE game_state
             SET current_level_name = ?, map_size = ?, health = ?, path = ?, current_position = ?
             WHERE username = ?
         """, (current_level_name, json.dumps(map_size), health, json.dumps(path), json.dumps(current_position), username))
@@ -54,7 +54,7 @@ def get_latest_game_state(username):
     """Query the latest game state for the given username"""
     cursor.execute("SELECT * FROM game_state WHERE username = ?", (username,))
     result = cursor.fetchone()
-    
+
     if result:
         game_state = {
             "username": result[1],
