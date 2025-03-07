@@ -4,3 +4,4 @@ pytest_cache
 *.out
 venv
 .DS_Store
+DarkMaze/.scannerwork
