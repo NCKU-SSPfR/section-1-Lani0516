@@ -4,9 +4,9 @@ from .judge import hit_obstacle, game_over, arrive_at_destination
 def move_location(game_state, direction):
     if game_over(game_state["health"]):
         return game_state
-    
+
     x, y = game_state["current_position"]
-    
+
     # Update position based on direction
     if direction == "up" and y > 0:
         y -= 1
@@ -16,38 +16,6 @@ def move_location(game_state, direction):
         x -= 1
     elif direction == "right" and x < game_state["map_size"][0] - 1:
         x += 1
-    elif direction == "up" and y > 0:
-        y += 1
-    elif direction == "down" and y < game_state["map_size"][1] - 1:
-        y -= 1
-    elif direction == "left" and x > 0:
-        x += 1
-    elif direction == "right" and x < game_state["map_size"][0] - 1:
-        x -= 1
-    elif direction == "up" and y > 0:
-        x += 1
-    elif direction == "down" and y < game_state["map_size"][1] - 1:
-        x -= 1
-    elif direction == "left" and x > 0:
-        y += 1
-    elif direction == "right" and x < game_state["map_size"][0] - 1:
-        y -= 1
-    elif direction == "up" and y > 0:
-        y += 1
-    elif direction == "down" and y < game_state["map_size"][1] - 1:
-        y -= 1
-    elif direction == "left" and x > 0:
-        x += 1
-    elif direction == "right" and x < game_state["map_size"][0] - 1:
-        x -= 1
-    elif direction == "up" and y > 0:
-        x += 1
-    elif direction == "down" and y < game_state["map_size"][1] - 1:
-        x -= 1
-    elif direction == "left" and x > 0:
-        y += 1
-    elif direction == "right" and x < game_state["map_size"][0] - 1:
-        y -= 1
 
     new_position = [x, y]
 
